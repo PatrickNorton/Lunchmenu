@@ -5,5 +5,8 @@ monthname = datetime.now().strftime('%B')
 currtime = datetime.now().hour
 filenm = monthname+'.txt'
 thefile = os.path.join(currdir, filenm)
-with open(thefile) as f:
-    text = f.readlines()
+try:
+    with open(thefile) as f:
+        text = f.readlines()
+except FileNotFoundError:
+    print("This month's file is not yet on here!")
